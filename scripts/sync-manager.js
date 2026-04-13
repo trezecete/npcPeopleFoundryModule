@@ -28,12 +28,27 @@ export class SyncManager {
 
     ui.notifications.info(game.i18n.format("NPC_SYNC.Notifications.SyncStart", { count: actors.length }));
 
+    // Fetch current remote files to get accurate SHAs (prevents 422 errors)
+    let remoteFiles = [];
+    try {
+      remoteFiles = await GitHubService.getFiles(repo, folder, token) || [];
+    } catch (e) {
+      console.warn(`${this.MODULE_ID} | Could not fetch remote list, folder might be new.`);
+    }
+
+    const shaMap = {};
+    if (Array.isArray(remoteFiles)) {
+      remoteFiles.forEach(f => shaMap[f.name] = f.sha);
+    }
+
     for (const actor of actors) {
       try {
         const data = actor.toObject();
         const filename = `${actor.id}.json`;
         const path = `${folder}/${filename}`;
-        const sha = remoteMetadata[actor.id]?.sha;
+        
+        // Prioritize SHA from the remote list we just fetched
+        const sha = shaMap[filename] || remoteMetadata[actor.id]?.sha;
 
         const response = await GitHubService.pushFile(repo, path, JSON.stringify(data, null, 2), sha, token);
         
