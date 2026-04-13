@@ -12,7 +12,17 @@ Hooks.once('init', () => {
 Hooks.on('renderActorDirectory', (app, html, data) => {
   if (!game.user.isGM) return;
 
-  const headerActions = html.find('.header-actions');
+  const footer = $(html).find('.footer');
+  if (footer.length === 0) {
+    console.warn(`${MODULE_ID} | Footer not found in ActorDirectory, checking header...`);
+  }
+
+  const headerActions = $(html).find('.header-actions');
+  if (headerActions.length === 0) {
+    console.error(`${MODULE_ID} | Could not find .header-actions in ActorDirectory. HTML structure might have changed.`);
+    return;
+  }
+
   const syncButton = $(`
     <button type="button" class="sync-github-btn" title="${game.i18n.localize('NPC_SYNC.UI.Title')}">
       <i class="fab fa-github"></i> ${game.i18n.localize('NPC_SYNC.UI.Sync')}
@@ -24,6 +34,7 @@ Hooks.on('renderActorDirectory', (app, html, data) => {
   });
 
   headerActions.append(syncButton);
+  console.log(`${MODULE_ID} | Sync button added to ActorDirectory.`);
 });
 
 Hooks.on('ready', async () => {
