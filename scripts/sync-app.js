@@ -3,7 +3,7 @@ import { SyncManager } from './sync-manager.js';
 /**
  * Modern ApplicationV2 for managing GitHub Sync
  */
-export class GitHubSyncApp extends foundry.applications.api.ApplicationV2 {
+export class GitHubSyncApp extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2) {
   constructor(options = {}) {
     super(options);
     this.results = null;
