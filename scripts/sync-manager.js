@@ -86,9 +86,25 @@ export class SyncManager {
         const localActor = game.actors.get(actorId);
 
         if (!localActor) {
-          updates.new.push(file);
+          try {
+            // For new actors, we need to fetch info to show in UI
+            const data = await GitHubService.getFileContent(file.url, token);
+            updates.new.push({
+              id: actorId,
+              name: data.name || actorId,
+              img: data.img || "icons/svg/mystery-man.svg",
+              url: file.url
+            });
+          } catch (e) {
+             updates.new.push({ id: actorId, name: actorId, url: file.url });
+          }
         } else if (localMetadata[actorId]?.sha !== file.sha) {
-          updates.modified.push(file);
+          updates.modified.push({
+            id: actorId,
+            name: localActor.name,
+            img: localActor.img,
+            url: file.url
+          });
         }
       }
 
@@ -108,8 +124,9 @@ export class SyncManager {
 
     for (const file of filesToImport) {
       try {
-        const data = await GitHubService.getFileContent(file.download_url, token);
-        const actorId = file.name.replace('.json', '');
+        // Use file.url (API) instead of download_url (Raw) to avoid CORS
+        const data = await GitHubService.getFileContent(file.url, token);
+        const actorId = file.id || file.name.replace('.json', '');
         const existingActor = game.actors.get(actorId);
 
         if (existingActor) {

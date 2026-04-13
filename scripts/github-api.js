@@ -25,17 +25,30 @@ export class GitHubService {
   }
 
   /**
-   * Fetch a specific file content (already decoded if using JSON format)
+   * Fetch a specific file content via REST API (avoids CORS on raw.githubusercontent.com)
+   * @param {string} apiUrl - The API URL for the file (e.g. file.url)
+   * @param {string} token - GitHub PAT
    */
-  static async getFileContent(downloadUrl, token) {
-    const response = await fetch(downloadUrl, {
+  static async getFileContent(apiUrl, token) {
+    const response = await fetch(apiUrl, {
       headers: {
-        'Authorization': `token ${token}`
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
       }
     });
 
-    if (!response.ok) throw new Error("Failed to download file content.");
-    return await response.json();
+    if (!response.ok) throw new Error("Failed to download file content via API.");
+    const data = await response.json();
+    
+    // GitHub API returns content as base64
+    if (data.encoding === 'base64') {
+      const decoded = decodeURIComponent(atob(data.content.replace(/\n/g, '')).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(decoded);
+    }
+    
+    throw new Error("Unexpected encoding from GitHub API.");
   }
 
   /**

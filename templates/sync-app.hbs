@@ -31,7 +31,10 @@
                     <h4><i class="fas fa-plus-circle"></i> {{localize "NPC_SYNC.UI.NewRemote"}} ({{results.new.length}})</h4>
                     <ul>
                         {{#each results.new}}
-                        <li><span>{{this.name}}</span></li>
+                        <li class="actor-item" data-id="{{this.id}}">
+                            <img src="{{this.img}}" class="actor-icon" />
+                            <span class="actor-name">{{this.name}}</span>
+                        </li>
                         {{/each}}
                     </ul>
                 </div>
@@ -43,10 +46,13 @@
                     <p class="hint">{{localize "NPC_SYNC.UI.ConflictHint"}}</p>
                     <ul>
                         {{#each results.modified}}
-                        <li class="conflict-item">
-                            <span>{{this.name}}</span>
+                        <li class="actor-item conflict-item" data-id="{{this.id}}">
+                            <div class="actor-info">
+                                <img src="{{this.img}}" class="actor-icon" />
+                                <span class="actor-name">{{this.name}}</span>
+                            </div>
                             <div class="item-actions">
-                                <button type="button" class="small-btn" data-action="import-single" data-path="{{this.path}}">
+                                <button type="button" class="small-btn" data-action="import-single" data-path="{{this.url}}">
                                     {{localize "NPC_SYNC.UI.KeepRemote"}}
                                 </button>
                             </div>
