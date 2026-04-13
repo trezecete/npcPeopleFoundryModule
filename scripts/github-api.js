@@ -15,6 +15,7 @@ export class GitHubService {
       'Accept': 'application/vnd.github.v3+json'
     };
     
+    const url = `${this.BASE_URL}/repos/${repo}/contents/${folder}`;
     const response = await fetch(url, { headers });
 
     if (response.status === 401 || response.status === 403) {

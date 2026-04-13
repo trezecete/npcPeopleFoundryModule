@@ -2,7 +2,7 @@
   "id": "npcPeopleFoundryModule",
   "title": "NPC People Foundry Sync",
   "description": "Synchronize all world actors with a GitHub repository for sharing across multiple game worlds.",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "library": false,
   "manifest": "https://raw.githubusercontent.com/trezecete/npcPeopleFoundryModule/main/module.json",
   "download": "https://github.com/trezecete/npcPeopleFoundryModule/releases/latest/download/module.zip",
