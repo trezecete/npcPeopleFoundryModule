@@ -1,5 +1,5 @@
 {
-  "id": "npc-people-foundry-sync",
+  "id": "npcPeopleFoundryModule",
   "title": "NPC People Foundry Sync",
   "description": "Synchronize all world actors with a GitHub repository for sharing across multiple game worlds.",
   "version": "1.0.0",

@@ -31,13 +31,13 @@ export class GitHubSyncApp extends foundry.applications.api.ApplicationV2 {
 
   static PARTS = {
     main: {
-      template: "modules/npc-people-foundry-sync/templates/sync-app.hbs"
+      template: "modules/npcPeopleFoundryModule/templates/sync-app.hbs"
     }
   };
 
   /** @override */
   async _prepareContext(options) {
-    const moduleId = 'npc-people-foundry-sync';
+    const moduleId = 'npcPeopleFoundryModule';
     const lastSync = game.settings.get(moduleId, 'lastSync');
     
     return {
@@ -74,7 +74,7 @@ export class GitHubSyncApp extends foundry.applications.api.ApplicationV2 {
   static async onImportAll(event, target) {
     if (!this.results || !this.results.remoteFiles) return;
     
-    const token = game.settings.get('npc-people-foundry-sync', 'accessToken');
+    const token = game.settings.get('npcPeopleFoundryModule', 'accessToken');
     const filesToImport = [...(this.results.new || []), ...(this.results.modified || [])];
     
     const count = await SyncManager.importFromRemote(filesToImport, token);
@@ -92,7 +92,7 @@ export class GitHubSyncApp extends foundry.applications.api.ApplicationV2 {
     const file = this.results.modified.find(f => f.path === path);
     if (!file) return;
 
-    const token = game.settings.get('npc-people-foundry-sync', 'accessToken');
+    const token = game.settings.get('npcPeopleFoundryModule', 'accessToken');
     await SyncManager.importFromRemote([file], token);
     
     // Remove from results list

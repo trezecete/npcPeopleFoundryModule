@@ -2,7 +2,7 @@ import { registerSettings } from './settings.js';
 import { GitHubSyncApp } from './sync-app.js';
 import { SyncManager } from './sync-manager.js';
 
-const MODULE_ID = 'npc-people-foundry-sync';
+const MODULE_ID = 'npcPeopleFoundryModule';
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing...`);

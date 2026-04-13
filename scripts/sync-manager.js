@@ -4,7 +4,7 @@ import { GitHubService } from './github-api.js';
  * Main engine to process actors and manage sync state
  */
 export class SyncManager {
-  static MODULE_ID = 'npc-people-foundry-sync';
+  static MODULE_ID = 'npcPeopleFoundryModule';
 
   /**
    * Export all world actors to a format suitable for GitHub

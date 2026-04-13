@@ -2,7 +2,7 @@
  * Handle all module settings registration
  */
 export const registerSettings = function() {
-  const MODULE_ID = 'npc-people-foundry-sync';
+  const MODULE_ID = 'npcPeopleFoundryModule';
 
   // GitHub Repository Path (e.g., trezecete/npcPeopleFoundry)
   game.settings.register(MODULE_ID, 'repository', {
