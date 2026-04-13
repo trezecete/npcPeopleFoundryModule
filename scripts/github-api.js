@@ -10,18 +10,15 @@ export class GitHubService {
   static async getFiles(repo, folder, token) {
     if (!token) throw new Error("GitHub Access Token is missing.");
     
-    const url = `${this.BASE_URL}/repos/${repo}/contents/${folder}`;
-    const response = await fetch(url, {
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github.v3+json'
+    };
+    
+    const response = await fetch(url, { headers });
 
-    if (response.status === 404) return null; // Folder doesn't exist
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || "Failed to fetch files from GitHub.");
+    if (response.status === 401 || response.status === 403) {
+      throw new Error("NPC_SYNC.Errors.AuthFailed");
     }
 
     return await response.json();
@@ -60,11 +57,15 @@ export class GitHubService {
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
-        'Authorization': `token ${token}`,
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     });
+
+    if (response.status === 401 || response.status === 403) {
+       throw new Error("NPC_SYNC.Errors.AuthFailed");
+    }
 
     if (!response.ok) {
       const error = await response.json();

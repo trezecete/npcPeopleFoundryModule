@@ -41,6 +41,9 @@
       "NoFolderConfigured": "GitHub Sync: No target folder configured. Fill in 'Target Folder' in settings to enable synchronization.",
       "FolderMissingOnRemote": "GitHub Sync: Folder '{folder}' does not exist on GitHub yet. It will be created on first push."
     },
+    "Errors": {
+      "AuthFailed": "GitHub Authentication Failed. Please check if your Token has 'repo' (Classic) or 'Contents: Read/Write' (Fine-grained) permissions."
+    },
     "Dialog": {
       "FolderMissing": {
         "Title": "Folder Not Found",

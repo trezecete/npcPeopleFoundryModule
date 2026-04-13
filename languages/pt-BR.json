@@ -41,6 +41,9 @@
       "NoFolderConfigured": "GitHub Sync: Nenhuma pasta alvo configurada. Preencha a 'Pasta Alvo' nas configurações para habilitar a sincronização.",
       "FolderMissingOnRemote": "GitHub Sync: A pasta '{folder}' ainda não existe no GitHub. Ela será criada no primeiro envio."
     },
+    "Errors": {
+      "AuthFailed": "Falha na Autenticação do GitHub. Verifique se o seu Token tem permissão 'repo' (Classic) ou 'Contents: Read/Write' (Fine-grained)."
+    },
     "Dialog": {
       "FolderMissing": {
         "Title": "Pasta Não Encontrada",
