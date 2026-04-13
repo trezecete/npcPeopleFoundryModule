@@ -1,0 +1,77 @@
+<div class="npc-sync-app">
+    <header class="sync-header">
+        <h1><i class="fab fa-github"></i> {{localize "NPC_SYNC.UI.Title"}}</h1>
+        <div class="sync-status">
+            <span>{{localize "NPC_SYNC.UI.LastSync"}}: <strong>{{lastSync}}</strong></span>
+        </div>
+    </header>
+
+    <div class="sync-actions">
+        <button type="button" class="push-btn" data-action="push">
+            <i class="fas fa-cloud-upload-alt"></i> {{localize "NPC_SYNC.UI.PushAll"}}
+        </button>
+        <button type="button" class="check-btn" data-action="check">
+            <i class="fas fa-sync"></i> {{localize "NPC_SYNC.UI.CheckUpdates"}}
+        </button>
+    </div>
+
+    {{#if results}}
+    <section class="sync-results">
+        {{#if results.no_folder}}
+        <div class="alert warning">
+            <i class="fas fa-exclamation-triangle"></i> {{localize "NPC_SYNC.UI.FolderNotFound"}}
+        </div>
+        {{else}}
+            {{#if results.hasChanges}}
+            <div class="changes-list">
+                <h3>{{localize "NPC_SYNC.UI.PendingChanges"}}</h3>
+                
+                {{#if results.new.length}}
+                <div class="change-group new">
+                    <h4><i class="fas fa-plus-circle"></i> {{localize "NPC_SYNC.UI.NewRemote"}} ({{results.new.length}})</h4>
+                    <ul>
+                        {{#each results.new}}
+                        <li><span>{{this.name}}</span></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+
+                {{#if results.modified.length}}
+                <div class="change-group modified">
+                    <h4><i class="fas fa-edit"></i> {{localize "NPC_SYNC.UI.ModifiedRemote"}} ({{results.modified.length}})</h4>
+                    <p class="hint">{{localize "NPC_SYNC.UI.ConflictHint"}}</p>
+                    <ul>
+                        {{#each results.modified}}
+                        <li class="conflict-item">
+                            <span>{{this.name}}</span>
+                            <div class="item-actions">
+                                <button type="button" class="small-btn" data-action="import-single" data-path="{{this.path}}">
+                                    {{localize "NPC_SYNC.UI.KeepRemote"}}
+                                </button>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="batch-actions">
+                <button type="button" class="primary-btn" data-action="import-all">
+                    {{localize "NPC_SYNC.UI.ImportAll"}}
+                </button>
+            </div>
+            {{else}}
+            <div class="alert success">
+                <i class="fas fa-check-circle"></i> {{localize "NPC_SYNC.UI.UpToDate"}}
+            </div>
+            {{/if}}
+        {{/if}}
+    </section>
+    {{/if}}
+
+    <footer class="sync-footer">
+        <p>{{localize "NPC_SYNC.UI.ConfigInfo"}}: <code>{{repo}}/{{folder}}</code></p>
+    </footer>
+</div>

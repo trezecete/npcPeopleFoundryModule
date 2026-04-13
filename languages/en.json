@@ -1,0 +1,53 @@
+{
+  "NPC_SYNC": {
+    "Settings": {
+      "Repo": {
+        "Name": "GitHub Repository Path",
+        "Hint": "Format: owner/repository (e.g., trezecete/npcPeopleFoundry)"
+      },
+      "Folder": {
+        "Name": "Target Folder",
+        "Hint": "Folder in the repository where actors will be stored for THIS world."
+      },
+      "Token": {
+        "Name": "GitHub Personal Access Token",
+        "Hint": "Token with 'repo' scope to allow pushing/pulling data."
+      }
+    },
+    "UI": {
+      "Title": "GitHub Actor Sync",
+      "Sync": "Sync GitHub",
+      "LastSync": "Last synchronization",
+      "Never": "Never",
+      "PushAll": "Push All Local to GitHub",
+      "CheckUpdates": "Check for GitHub Updates",
+      "SyncNow": "Sync Now",
+      "UpToDate": "Everything is up to date!",
+      "PendingChanges": "Pending Remote Changes",
+      "NewRemote": "New Actors on GitHub",
+      "ModifiedRemote": "Conflicts / Remote Updates",
+      "ConflictHint": "Remote version differs from local. Keep remote?",
+      "KeepRemote": "Overwrite with Remote",
+      "ImportAll": "Import All Changes",
+      "ConfigInfo": "Current Mapping",
+      "FolderNotFound": "Warning: Target folder not found in the repository."
+    },
+    "Notifications": {
+      "NoFolder": "You must configure a Target Folder in the module settings first.",
+      "SyncStart": "Syncing {count} actors to GitHub...",
+      "SyncComplete": "Sync completed. Success: {success}, Failed: {failed}",
+      "Checking": "Checking GitHub for updates...",
+      "ImportComplete": "Imported {count} actors from GitHub.",
+      "NoFolderConfigured": "GitHub Sync: No target folder configured. Fill in 'Target Folder' in settings to enable synchronization.",
+      "FolderMissingOnRemote": "GitHub Sync: Folder '{folder}' does not exist on GitHub yet. It will be created on first push."
+    },
+    "Dialog": {
+      "UpdateAvailable": {
+        "Title": "GitHub Updates Available",
+        "Content": "Found {count} update(s) or new actors on GitHub. Would you like to check them now?",
+        "SyncNow": "Yes, Open Sync Manager",
+        "Later": "Later"
+      }
+    }
+  }
+}

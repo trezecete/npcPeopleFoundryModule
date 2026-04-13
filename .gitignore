@@ -1,0 +1,18 @@
+# Foundry VTT
+.DS_Store
+Thumbs.db
+*.log
+
+# Git
+.git/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+node_modules/
+dist/
+package-lock.json

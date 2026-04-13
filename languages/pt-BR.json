@@ -1,0 +1,53 @@
+{
+  "NPC_SYNC": {
+    "Settings": {
+      "Repo": {
+        "Name": "Caminho do Repositório GitHub",
+        "Hint": "Formato: usuario/repositorio (ex: trezecete/npcPeopleFoundry)"
+      },
+      "Folder": {
+        "Name": "Pasta Alvo",
+        "Hint": "Pasta no repositório onde os atores serão salvos para ESTE mundo."
+      },
+      "Token": {
+        "Name": "Token de Acesso Pessoal (PAT)",
+        "Hint": "Token com permissão 'repo' para permitir envio/recebimento de dados."
+      }
+    },
+    "UI": {
+      "Title": "Sincronização de Atores GitHub",
+      "Sync": "Sinc GitHub",
+      "LastSync": "Última sincronização",
+      "Never": "Nunca",
+      "PushAll": "Enviar tudo para o GitHub",
+      "CheckUpdates": "Verificar Atualizações no GitHub",
+      "SyncNow": "Sincronizar Agora",
+      "UpToDate": "Tudo está atualizado!",
+      "PendingChanges": "Mudanças Remotas Pendentes",
+      "NewRemote": "Novos Atores no GitHub",
+      "ModifiedRemote": "Conflitos / Atualizações Remotas",
+      "ConflictHint": "A versão remota é diferente da local. Manter a remota?",
+      "KeepRemote": "Sobrescrever com Remoto",
+      "ImportAll": "Importar Todas as Mudanças",
+      "ConfigInfo": "Mapeamento Atual",
+      "FolderNotFound": "Aviso: Pasta alvo não encontrada no repositório."
+    },
+    "Notifications": {
+      "NoFolder": "Você deve configurar uma Pasta Alvo nas configurações do módulo primeiro.",
+      "SyncStart": "Sincronizando {count} atores para o GitHub...",
+      "SyncComplete": "Sincronização concluída. Sucesso: {success}, Erros: {failed}",
+      "Checking": "Verificando atualizações no GitHub...",
+      "ImportComplete": "Importados {count} atores do GitHub.",
+      "NoFolderConfigured": "GitHub Sync: Nenhuma pasta alvo configurada. Preencha a 'Pasta Alvo' nas configurações para habilitar a sincronização.",
+      "FolderMissingOnRemote": "GitHub Sync: A pasta '{folder}' ainda não existe no GitHub. Ela será criada no primeiro envio."
+    },
+    "Dialog": {
+      "UpdateAvailable": {
+        "Title": "Atualizações Disponíveis no GitHub",
+        "Content": "Foram encontradas {count} atualizações ou novos atores no GitHub. Deseja verificar agora?",
+        "SyncNow": "Sim, Abrir Gerenciador",
+        "Later": "Depois"
+      }
+    }
+  }
+}

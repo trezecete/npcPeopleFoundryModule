@@ -1,0 +1,191 @@
+/* GitHub Sync Module CSS */
+
+.npc-sync-app {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.npc-sync-app .sync-header {
+    background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.npc-sync-app .sync-header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: none;
+}
+
+.npc-sync-app .sync-status {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.npc-sync-app .sync-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.npc-sync-app button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.npc-sync-app .push-btn {
+    background: #2ea44f;
+    color: white;
+}
+
+.npc-sync-app .push-btn:hover {
+    background: #2c974b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(46, 164, 79, 0.3);
+}
+
+.npc-sync-app .check-btn {
+    background: #4a5568;
+    color: white;
+}
+
+.npc-sync-app .check-btn:hover {
+    background: #2d3748;
+}
+
+.npc-sync-app .sync-results {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 10px;
+    min-height: 50px;
+}
+
+.npc-sync-app .alert {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.npc-sync-app .alert.success {
+    background: rgba(46, 164, 79, 0.15);
+    border-left: 4px solid #2ea44f;
+    color: #3fb950;
+}
+
+.npc-sync-app .alert.warning {
+    background: rgba(210, 153, 34, 0.15);
+    border-left: 4px solid #d29922;
+    color: #d29922;
+}
+
+.npc-sync-app .changes-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.npc-sync-app .change-group {
+    margin-bottom: 15px;
+}
+
+.npc-sync-app .change-group h4 {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #8b949e;
+}
+
+.npc-sync-app ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.npc-sync-app li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.npc-sync-app .conflict-item {
+    border-left: 3px solid #f85149;
+}
+
+.npc-sync-app .small-btn {
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+}
+
+.npc-sync-app .small-btn:hover {
+    background: #30363d;
+    border-color: #8b949e;
+}
+
+.npc-sync-app .batch-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.npc-sync-app .primary-btn {
+    width: 100%;
+    background: #1f6feb;
+    color: white;
+}
+
+.npc-sync-app .primary-btn:hover {
+    background: #388bfd;
+}
+
+.npc-sync-app .sync-footer {
+    font-size: 0.75rem;
+    color: #8b949e;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Header Button in Actor Sidebar */
+.sync-github-btn {
+    flex: 0 0 auto;
+    background: #24292e;
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sync-github-btn:hover {
+    background: #2ea44f;
+}
+
+.header-actions .sync-github-btn i {
+    margin-right: 4px;
+}
