@@ -42,6 +42,12 @@
       "FolderMissingOnRemote": "GitHub Sync: A pasta '{folder}' ainda não existe no GitHub. Ela será criada no primeiro envio."
     },
     "Dialog": {
+      "FolderMissing": {
+        "Title": "Pasta Não Encontrada",
+        "Content": "A pasta '{folder}' não foi localizada no repositório GitHub. Deseja utilizar este nome? Ela será criada automaticamente no seu primeiro envio (Push).",
+        "Yes": "Sim, usar esta pasta",
+        "Config": "Alterar Configuração"
+      },
       "UpdateAvailable": {
         "Title": "Atualizações Disponíveis no GitHub",
         "Content": "Foram encontradas {count} atualizações ou novos atores no GitHub. Deseja verificar agora?",

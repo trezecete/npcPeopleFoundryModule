@@ -39,8 +39,25 @@ Hooks.on('ready', async () => {
   const updates = await SyncManager.checkRemoteUpdates();
   
   if (updates?.status === 'no_folder') {
-    ui.notifications.warn(game.i18n.format('NPC_SYNC.Notifications.FolderMissingOnRemote', { folder }));
-  } else if (updates?.new.length || updates?.modified.length) {
+    new foundry.applications.api.DialogV2({
+      window: { title: game.i18n.localize('NPC_SYNC.Dialog.FolderMissing.Title') },
+      content: `<p>${game.i18n.format('NPC_SYNC.Dialog.FolderMissing.Content', { folder })}</p>`,
+      buttons: [{
+        action: "yes",
+        label: game.i18n.localize('NPC_SYNC.Dialog.FolderMissing.Yes'),
+        callback: () => {
+          ui.notifications.info(game.i18n.format('NPC_SYNC.Notifications.FolderMissingOnRemote', { folder }));
+        }
+      }, {
+        action: "config",
+        label: game.i18n.localize('NPC_SYNC.Dialog.FolderMissing.Config'),
+        callback: () => {
+          game.settings.sheet.render(true, { focus: `${MODULE_ID}.folderName` });
+        }
+      }]
+    }).render(true);
+  }
+ else if (updates?.new.length || updates?.modified.length) {
     const total = updates.new.length + updates.modified.length;
     
     new foundry.applications.api.DialogV2({

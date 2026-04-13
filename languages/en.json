@@ -42,6 +42,12 @@
       "FolderMissingOnRemote": "GitHub Sync: Folder '{folder}' does not exist on GitHub yet. It will be created on first push."
     },
     "Dialog": {
+      "FolderMissing": {
+        "Title": "Folder Not Found",
+        "Content": "The folder '{folder}' was not found in the GitHub repository. Do you want to use this folder name? It will be automatically created on your first push.",
+        "Yes": "Yes, use this folder",
+        "Config": "Change Settings"
+      },
       "UpdateAvailable": {
         "Title": "GitHub Updates Available",
         "Content": "Found {count} update(s) or new actors on GitHub. Would you like to check them now?",
